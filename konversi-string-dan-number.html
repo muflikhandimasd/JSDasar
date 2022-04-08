@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konversi String dan Number</title>
+</head>
+
+<body>
+    <script>
+        const value1 = 1;
+        const value2 = parseInt('2');
+
+        const sum = value1 + value2;
+        document.writeln(`<p>${sum}</p>`);
+
+        document.writeln(`<p>${parseInt('2.9')}</p>`);
+        document.writeln(`<p>${parseFloat('2.9')}</p>`);
+        document.writeln(`<p>${Number('2.9')}</p>`);
+
+        const a = 1;
+        const b = 1;
+        const total = a.toString() + b.toString();
+        document.writeln(`<p>${total}</p>`);
+
+        document.writeln(`<p>${parseInt('2salah oke')}</p>`);//2
+        //parseInt dan parseFloat masih ada tolerir kesalahan belakangnya, shg ambil nilai depan saja
+        document.writeln(`<p>${parseFloat('ek2.9')}</p>`); //NaN
+        document.writeln(`<p>${parseFloat('salah')}</p>`); //NaN
+
+        // Number() tidak mentolerir kesalahan sedikitpun pada data
+        document.writeln(`<p>${Number('2.9e')}</p>`); //NaN
+        document.writeln(`<p>${Number('skip oke')}</p>`); //NaN
+
+        const first = Number('salah'); //NaN
+        const totalNumber = first + 100;
+        document.writeln(`<p>${totalNumber}</p>`);
+
+        document.writeln(`<p>${isNaN(first)}</p>`);
+        document.writeln(`<p>${isNaN(100)}</p>`);
+        document.writeln(`<p>${isNaN(NaN)}</p>`);
+
+    </script>
+
+</body>
+
+</html>

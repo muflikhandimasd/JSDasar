@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operator Logika di Non Boolean</title>
+</head>
+
+<body>
+    <script>
+
+        // Operator || ngambil yang truthy
+        console.info('Hello' || ''); //Hello
+        console.info('' || []); //[]
+        console.info('0' || 'NOL'); //0
+        console.info(0 || 'NOL'); //NOL
+        console.info(null || 'NULL'); //NULL
+        console.info(undefined || 'UNDEFINED'); //UNDEFINED
+        console.info(0 || false); //false
+
+        // Contoh penggunaan falsy dan truthy
+        const person = {
+            firstName: '',
+            lastName: 'Dimas'
+        };
+
+        const name = person.firstName || person.lastName;
+        // const name = person.firstName ?? person.lastName; //hasilnya kosong, 
+        //karena nullish berlaku jika datanya null, 
+        //sementara ini datanya itu string kosong saja bukan null
+        console.info(name);
+
+        // Operator && ngambil yang falsy dari kiri ke kanan, ambil yang pertama
+        // jika gaada yang falsy, ambil yang terakhir kanan
+        console.info('&&');
+        console.info('Hello' && ''); //''
+        console.info('' && []); //''
+        console.info('0' && 'NOL'); //NOL
+        console.info(0 && 'NOL'); //0
+        console.info(null && 'NULL'); //null
+        console.info(undefined && 'UNDEFINED'); //undefined
+        console.info(0 && false); //0
+
+    </script>
+</body>
+
+</html>

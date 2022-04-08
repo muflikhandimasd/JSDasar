@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tipe Data Object</title>
+</head>
+
+<body>
+    <script>
+
+        const orang = {
+            'nama lengkap': 'Muflikhan Dimas Dwiprayogi',
+            alamat: 'Indonesia',
+            umur: 22
+        };
+
+        console.info(`Nama : ${orang['nama lengkap']}`);
+        console.info(`Alamat : ${orang.alamat}`);
+        console.info(`Umur : ${orang.umur}`);
+
+
+        // Ubah property atau atribut
+        // orang['nama'] = 'Muflikhan Dimas Dwiprayogi';
+        // orang['Alamat'] = 'Indonesia';
+        // orang['umur'] = 22;
+
+        console.table(orang);
+
+        delete orang['umur'];
+        console.table(orang);
+
+
+    </script>
+</body>
+
+</html>
