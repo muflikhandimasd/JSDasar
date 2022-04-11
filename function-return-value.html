@@ -37,6 +37,22 @@
         const finalValue = getFinalValue(80);
         document.writeln(`<p>${finalValue}</p>`);
 
+        function isContains(array, searchValue){
+            for (const element of array) {
+                console.info(`Iterasi ke-${element}`);
+                if (element === searchValue) {
+                    return true;
+                }
+            }
+            // jika udah ketemu bakal berhenti proses pencariannya
+            return false;
+        }
+
+        const array = [2,3243,434,5,6,6,6,777,8,2];
+        const search = 434;
+        const found = isContains(array, search);
+        document.writeln(`<p>${found}</p>`);
+
 
     </script>
 </body>
