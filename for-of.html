@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Of</title>
+</head>
+<body>
+    <script>
+        
+        //For of digunakan untuk ambil value dari data yang iterable
+
+        const names = ['Muflikhan', 'Dimas', 'Dwiprayogi'];
+        for(const name of names){
+            document.writeln(`<p>${name}</p>`);
+        }
+
+        // for of di String
+        const fullName = 'Muflikhan Dimas Dwiprayogi';
+        for (const character of fullName) {
+            document.writeln(`<p>${character}</p>`);
+        }
+
+        const person = {
+            firstName : 'Muflikhan',
+            lastName : 'Dimas'
+        };
+
+        for(const value of person){
+            document.writeln(`<p>${value}</p>`)
+        }
+        /*
+        Uncaught TypeError: person is not iterable
+    at for-of.html:30:28
+        */
+
+    </script>
+</body>
+</html>
