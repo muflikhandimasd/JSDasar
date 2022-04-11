@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function Rest Parameter</title>
+</head>
+<body>
+    <script>
+
+        // rest param=> ...data(ada titik tiga dulu), otomatis terkonversi jadi array
+        function sum(name, ...data){
+            let total = 0;
+            for (const item of data) {
+                total += item;
+            }
+            document.writeln(`<p>Total ${name} is ${total}</p>`)
+        }
+
+        sum('Orange', 2,3,45,5,6,666,7);//734
+        sum('Apple', 2,3,5); //10
+        sum('Mango', 2,3,10); //15
+
+        const values = [10,10,10,10,5];
+        sum('Test Spread', ...values);
+
+        function oldSum(){
+            console.info(arguments);
+            let total = 0;
+            for (const argument of arguments) {
+                total += argument;
+            }
+            document.writeln(`<p>Total is ${total}</p>`);
+        }
+
+        oldSum(3,4,5,6);
+    </script>
+</body>
+</html>

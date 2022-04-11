@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function Sebagai Value</title>
+</head>
+
+<body>
+    <script>
+
+
+        function sayHello(name) {
+            document.writeln(`<p>Hello ${name}</p>`);
+        }
+
+        sayHello('Muflikhan');
+        // const say = sayHello(); // kalo ini kita manggil functionnya
+        const say = sayHello; // ini yang kita mau, menyimpan tanpa memanggil functionnya
+        say('Dimas');
+
+        function giveMeName(callback){
+            callback('Fulan'); //sayHello('Fulan'); 
+            //blocknya buat ngelakuin function parameternya
+        }
+
+        giveMeName(say);
+        giveMeName(sayHello);
+
+
+    </script>
+</body>
+
+</html>

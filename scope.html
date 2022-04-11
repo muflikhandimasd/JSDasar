@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scope</title>
+</head>
+
+<body>
+    <script>
+
+
+        // Global Scope
+        let counter = 0;
+
+        // Global Scope
+        function hitMe() {
+            // Local Scope hitMe
+            counter++;
+        }
+
+        // Global Scope
+        function other() {
+            // local scope other
+        }
+
+        hitMe();
+        hitMe();
+
+        console.info(counter);
+
+        /*
+        LOCAL SCOPE
+        */
+
+        //Global bisa diakses ke local, tetapi local gabisa diakses secara global
+        function first() {
+            let firstVariable = 'First';
+
+            function firstNested(){
+                console.info(firstVariable);
+                const firstNestedVariable = 'First Nested';
+            }
+
+            firstNested();
+            // console.info(firstNestedVariable);
+        }
+        function second() {
+            let secondVariable = 'Second';
+            // console.info(firstVariable);// ERROR
+        }
+
+        first();
+        second();
+
+        // console.info(firstVariable); //ERROR
+        // console.info(secondVariable); //ERROR
+
+    </script>
+</body>
+
+</html>
