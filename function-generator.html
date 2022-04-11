@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function Generator</title>
+</head>
+<body>
+    <script>
+
+
+        function* createNames(){
+            yield 'Muflikhan';
+            yield 'Dimas';
+            yield 'Dwiprayogi';
+        }
+
+        console.info(createNames());
+        const names = createNames();
+        // console.info(names[0]); //undefined
+        // function generator cuma bisa diiterasi tetapi gabisa diakses menggunakan index
+        for (const name of names) {
+            console.info(name);
+        }
+
+        // LAZY
+        function* buatAngkaGanjil(value){
+            // ini kita tarik datanya dulu, baru yield datanya
+            for(let i = 1; i <= value; i++){
+                if (i % 2 ===1) {
+                    // 1 data diambil
+                    console.info(`Yield : ${i}`);
+                    // 1 data diambil lalu balik lagi
+                    yield i;
+                }
+            }
+        }
+
+        const numbers = buatAngkaGanjil(100);
+        console.info(numbers.next().value);
+        console.info(numbers.next().value);
+        console.info(numbers.next().value);
+
+
+
+        // EAGER
+        function buatAngkaGanjilArray(value){
+            // ini eager bukan lazy karena 1 tugas diselesaikan dulu baru berikutnya
+            let result = [];
+            for(let i = 1; i <= value; i++){
+                if (i % 2 ===1) {
+                    // ini dulu dilakuin sampe selesai
+                    console.info(`Yield : ${i}`);
+                    // lalu ini
+                    result.push(i);
+                }
+            }
+            return result;
+        }
+
+
+
+        // const numbersArray = buatAngkaGanjilArray(100); // ini langsung manggil dan ngejalanin methodnya
+        // for (const number of numbersArray) {
+        //     console.info(number);
+        // }
+
+        // const numbers = buatAngkaGanjil(100); //ini lazy, jika cuma dipanggil gaakan berjalan langsung
+        // HANYA DIEKSEKUSI JIKA DIBUTUHKAN. JIKA GA DIBUTUHKAN GAAKAN DIEKSEKUSI
+        // for (const number of numbers) {
+        //     console.info(number);
+        // }
+
+
+    </script>
+</body>
+</html>
