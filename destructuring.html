@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destructuring</title>
+</head>
+
+<body>
+    <script>
+
+        {
+            // Dengan kasih kurawal langsung bedain scopenya   
+            const names = ['Muflikhan', 'Dimas', 'Dwiprayogi', 'Budi', 'Joko'];
+            const [firstName, middleName, lastName, ...others] = names;
+
+            console.info(firstName);
+            console.info(middleName);
+            console.info(lastName);
+            console.info(others); //[ 'Budi','Joko']
+        }
+
+        {
+
+
+            const person = {
+                firstName: 'Muflikhan',
+                lastName: 'Dimas',
+                address: {
+                    street: 'Jalan belum ada',
+                    city: 'Jakarta',
+                    country: 'Indonesia'
+                },
+                hobby: 'Coding',
+                channel: 'Amazing Programming'
+            }
+
+            // nama destructur harus sama dengan object
+            const { firstName, lastName, address: { street, city, country }, ...others } = person;
+            console.info(firstName);
+            console.info(lastName);
+            console.info(street);
+            console.info(city);
+            console.info(country);
+            console.info(others);
+
+        }
+
+        {
+            function displayPerson({ firstName, middleName, lastName }) {
+                console.info(firstName);
+                console.info(middleName);
+                console.info(lastName);
+            }
+
+            const person = {
+                firstName: 'Muflikhan',
+                middleName: 'Dimas',
+                lastName: 'Dwiprayogi'
+            };
+
+            displayPerson(person);
+
+
+        }
+
+        {
+            function sum([first, second]) {
+                return first + second;
+            }
+
+            console.info(sum([2, 3]));
+            console.info(sum([10, 30]));
+
+
+        }
+
+        {
+
+            const names = ['Muflikhan', 'Budi', 'Joko'];
+            const [firstName, middleName = 'Dimas', lastName = 'Dwiprayogi'] = names;
+            console.info(firstName);
+            console.info(middleName);
+            console.info(lastName);
+
+
+        }
+
+        {
+            const person = {
+                firstName: 'Muflikhan',
+                middleName: 'Jono',
+                lastName: 'Dimas',
+            }
+
+            // nama destructur harus sama dengan object
+            const { firstName, middleName = 'Fulan', lastName } = person;
+            console.info(firstName);
+            console.info(middleName);
+            console.info(lastName);
+
+        }
+
+        {
+            const person = {
+                firstName: 'Muflikhan',
+                middleName: 'Jono',
+                lastName: 'Dimas',
+            }
+
+            // nama destructur harus sama dengan object
+            const { firstName: namaDepan,
+                middleName: namaTengah = 'Fulan',
+                lastName: namaBelakang } = person;
+            console.info(namaDepan);
+            console.info(namaTengah);
+            console.info(namaBelakang);
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kata Kunci This</title>
+</head>
+
+<body>
+    <script>
+
+        // this di Global Scope
+        console.info(this); //Window = browser itu sendiri
+
+        function sample() {
+            console.info(this);
+
+
+            function inner() {
+                console.info(this);
+            }
+            inner();
+        }
+        sample();
+
+        const person ={
+            name : 'Muflikhan',
+            sayHello : function(name){
+                // console.info(this);
+                // kata kunci this, mengarahkan object saat ini
+                // console.info(`Hello ${name}, My name is ${person.name}`); //this sama seperti ini
+                console.info(`Hello ${name}, My name is ${this.name}`);
+            }
+        };
+
+        person.sayHello('Doni');
+        person.sayHello('Joko');
+
+    </script>
+</body>
+
+</html>
